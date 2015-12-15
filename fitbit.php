@@ -13,8 +13,10 @@ class Fitbit{
     'refresh_token' => ''
   ];
 
-  public function __construct(){
-    
+  public function __construct($id="", $secret="", $url=""){
+    $this->id = $id;
+    $this->secret = $secret;
+    $this->redirectUrl = $url;
   }
 
   function setMessage($msg){
