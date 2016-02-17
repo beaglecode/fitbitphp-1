@@ -42,9 +42,9 @@ class Fitbit{
     }
 
     /**
-    * get latest refresh_token & access_token
-    * @return array
-    */
+     * get latest refresh_token & access_token
+     * @return array
+     */
     function getLatestTokens(){
         return $this->latestTokens;
     }
@@ -223,7 +223,7 @@ class Fitbit{
         $response = $this->curl_request($url, array(), $headers, "GET");
         $response = json_decode($response, true);
         if(!$this->isResponseOk($response)){
-          return false;
+            throw new FitBitException('200', $response['errors'][0]['errorType'], $response['errors'][0]['message']);
         }
         return $response;
     }
