@@ -137,7 +137,7 @@ class Fitbit{
         $headers = array(
           "Authorization: Bearer $accessToken"
         );
-        $rawResponse = $this->curl_request($url, array(), $headers);
+        $rawResponse = $this->curl_request($url, array(), $headers, "get");
         $response = json_decode($rawResponse, true);
         if(!$this->isResponseOk($response)){
           throw new FitBitException('401', $response['errors'][0]['errorType'], $response['errors'][0]['message']);
